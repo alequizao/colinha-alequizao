@@ -3,9 +3,9 @@
  * https://github.com/alequizao · © 2026 Alequizao. Todos os direitos reservados.
  */
 /* Colinha · Alequizão — service worker: app abre offline; API sempre tenta a rede primeiro. */
-const V = 'colinha-1.0.5';
+const V = 'colinha-1.0.6';
 const BASE = '/colinha/';
-const ARQS = [BASE, BASE + 'app.js?v=1.0.5', BASE + 'app.css?v=1.0.5', BASE + 'icones/icone.svg?v=1.0.5', BASE + 'manifest.webmanifest?v=1.0.5'];
+const ARQS = [BASE, BASE + 'app.js?v=1.0.6', BASE + 'app.css?v=1.0.6', BASE + 'icones/icone.svg?v=1.0.6', BASE + 'manifest.webmanifest?v=1.0.6'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(V).then(c => c.addAll(ARQS)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('colinha-') && k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim()));

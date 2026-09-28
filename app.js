@@ -6,7 +6,7 @@
  * App de página única: a colinha fica só no aparelho (localStorage); o servidor só entrega a lista pública do TSE. */
 (function () {
 'use strict';
-var VERSAO = '1.0.5';
+var VERSAO = '1.0.6';
 var BASE = '/colinha';
 var API = BASE + '/api.php';
 var CHAVE = 'colinha-alequizao:';
@@ -876,7 +876,10 @@ function telaColinhas() {
     o += '<div class="salva"><div class="salva__top"><span class="uf-chip">' + x.uf + '</span><b>' + esc(x.nome) + '</b><small style="color:var(--faint)">' + new Date(x.em).toLocaleDateString('pt-BR') + '</small></div>' +
       '<div class="salva__nums">' + ss.map(function (s) {
         var v = x.votos[s.k]; if (!v) return '';
-        return '<span><em>' + s.rot.replace('Deputado ', 'Dep. ').replace(/Senador \((\d)ª vaga\)/, 'Sen. $1') + '</em>' + esc(v.t === 'c' || v.t === 'l' ? v.num : v.t === 'n' ? 'nulo' : 'branco') + '</span>';
+        // miniatura: foto do candidato; na legenda, o logo do partido
+        var mini = v.t === 'c' ? '<img class="mf" src="' + foto(v.sq) + '" alt="" loading="lazy" onerror="this.remove()">'
+          : v.t === 'l' ? '<img class="mf ml" src="' + logo(v.sigla) + '" alt="" loading="lazy" onerror="this.remove()">' : '';
+        return '<span' + (mini ? ' class="cm"' : '') + ' title="' + esc(v.t === 'c' ? v.nome + ' · ' + v.sigla : '') + '">' + mini + '<i><em>' + s.rot.replace('Deputado ', 'Dep. ').replace(/Senador \((\d)ª vaga\)/, 'Sen. $1') + '</em>' + esc(v.t === 'c' || v.t === 'l' ? v.num : v.t === 'n' ? 'nulo' : 'branco') + '</i></span>';
       }).join('') + '</div>' +
       '<div class="salva__acoes"><button class="mini" data-usar="' + i + '">' + I('ok') + 'Usar</button><button class="mini" data-link="' + i + '">' + I('link') + 'Link</button>' +
       '<button class="mini" data-ren="' + i + '">Renomear</button><button class="mini perigo" data-del="' + i + '">' + I('lixo') + 'Apagar</button></div></div>';

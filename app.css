@@ -409,3 +409,10 @@ html[data-theme=dark] .teclado{background:#0e0e10}
   .imp__l .n i{width:5mm;height:7mm;font-size:12pt}
 }
 .nav-top a{text-decoration:none}
+/* miniaturas nas colinhas salvas */
+.salva__nums span{display:inline-flex;align-items:center;gap:7px}
+.salva__nums span.cm{padding:3px 8px 3px 3px}
+.salva__nums span i{font-style:normal;display:flex;flex-direction:column;line-height:1.15}
+.salva__nums span i em{margin:0}
+.salva__nums .mf{width:26px;height:34px;border-radius:5px;object-fit:cover;display:block;border:1px solid var(--border);background:var(--tint)}
+.salva__nums .mf.ml{width:28px;height:28px;object-fit:contain;background:#fff}
