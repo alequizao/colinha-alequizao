@@ -1,0 +1,5 @@
+config.php
+cache/
+*.log
+*.bak*
+node_modules/

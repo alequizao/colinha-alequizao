@@ -1,0 +1,25 @@
+# Colinha · Alequizão
+Options -Indexes
+RewriteEngine On
+# Fotos e logos: servidos do cache; se ainda não existem, midia.php busca.
+RewriteCond %{DOCUMENT_ROOT}/colinha/cache/fotos/$1.jpg -f
+RewriteRule ^f/(\d+)\.jpg$ cache/fotos/$1.jpg [L]
+RewriteRule ^f/(\d+)\.jpg$ midia.php?t=f&id=$1 [L,QSA]
+RewriteCond %{DOCUMENT_ROOT}/colinha/cache/logos/$1.jpg -f
+RewriteRule ^l/([a-z0-9-]+)\.jpg$ cache/logos/$1.jpg [L]
+RewriteRule ^l/([a-z0-9-]+)\.jpg$ midia.php?t=l&id=$1 [L,QSA]
+# Scripts internos não ficam expostos
+RewriteRule ^(sync|lib|config|config\.example)\.php$ - [F,L]
+# Rotas do app (/colinha/busca, /colinha/candidato/...) caem no index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(busca|simulador|colinhas|guia|sobre|privacidade|termos|dados|candidato/[a-z0-9-]+|c/[A-Za-z0-9_-]+)/?$ index.html [L]
+<FilesMatch "^(index\.html|sw\.js|manifest\.webmanifest)$">
+  Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
+<FilesMatch "\.(jpg)$">
+  Header set Cache-Control "public, max-age=2592000, immutable"
+</FilesMatch>
+<Files "sw.js">
+  Header set Service-Worker-Allowed "/colinha/"
+</Files>

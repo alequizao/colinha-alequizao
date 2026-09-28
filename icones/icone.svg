@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <style>@media (prefers-color-scheme: dark){svg>rect{fill:#0f0f10;stroke:#303035}g>rect,g>path[fill=none]{stroke:#f4f4f4}g>path[fill-opacity]{fill:#f4f4f4}}</style>
+  <rect x="0.75" y="0.75" width="46.5" height="46.5" rx="9.25" fill="#FBFAF6" stroke="#E6E2D8" stroke-width="1.5"/>
+  <g transform="rotate(45 24 24)">
+    <rect x="9.5" y="9.5" width="29" height="29" rx="2" fill="none" stroke="#111" stroke-width="2.4"/>
+    <path d="M27.5 9.5v11h11" fill="none" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M27.5 9.5l11 11h-11z" fill="#111" fill-opacity="0.2"/>
+  </g>
+</svg>

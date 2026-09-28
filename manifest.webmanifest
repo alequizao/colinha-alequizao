@@ -1,0 +1,17 @@
+{
+  "id": "/colinha/",
+  "name": "Colinha · Alequizão",
+  "short_name": "Colinha",
+  "description": "Minha colinha eleitoral 2026: escolha seus candidatos, confira nome e número e leve a colinha pronta pra urna. Sem cadastro, fica só no seu aparelho.",
+  "lang": "pt-BR",
+  "start_url": "/colinha/",
+  "scope": "/colinha/",
+  "display": "standalone",
+  "theme_color": "#fafafa",
+  "background_color": "#fafafa",
+  "icons": [
+    { "src": "/colinha/icones/icone-192.png?v=1.0.5", "sizes": "192x192", "type": "image/png" },
+    { "src": "/colinha/icones/icone-512.png?v=1.0.5", "sizes": "512x512", "type": "image/png" },
+    { "src": "/colinha/icones/icone-512-mask.png?v=1.0.5", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
